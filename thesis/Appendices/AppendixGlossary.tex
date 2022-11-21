@@ -1,0 +1,98 @@
+% Appendix Template
+
+\chapter{Glossary of Notations} % Main appendix title
+
+\label{AppendixX} % Change X to a consecutive letter; for referencing this appendix elsewhere, use \ref{AppendixX}
+\begin{table}[htbp]
+\begin{tabular}{|l|l|}
+\hline
+Mathematical   & Meaning                                                 \\
+\hline
+$w_{ki}$       & Weight of synaptic connection from neuron $z_i\rightarrow z_k$     \\
+$u_k$          & dynamic facilitation variable of neuron $k$             \\
+$R_k$          & dynamic depression variable of neuron $k$               \\
+$U$            & STP parameter                                           \\
+$D$            & Depression time constant                                \\
+$F$            & Facilitation time constant                              \\
+$\tau_{rise}$  & Rise time constant of EPSP                              \\
+$\tau_{decay}$ & Decay time constant of EPSP                             \\
+$r_k(t)$       & Firing rate of neuron $k$ at time $t$                   \\
+$u_k(t)$       & Membrane potential of neuron $k$ at time $t$            \\
+$y_i(t)$       & EPSP of neuron $i$ at time $t$                          \\
+$R_{\max}$     & Maximum firing rate of a WTA circuit                    \\
+$\Delta_{k-1}$ & Interspike interval between spikes $k$ and $k-1$        \\
+$\eta_{ki}$    & Adaptive learning rate of synapse from neuron $z_i\rightarrow z_k$ \\
+$A_{k}$        & Amplitude of the $k$-th input spike                     \\
+$c$            & Scaling constant for controlling the strength of STDP   \\
+$w_{k0}$       & Bias/excitability parameter of neuron $k$               \\
+$K$            & Number of neurons in a WTA circuit                      \\ 
+$z_k$          & $k$-th neuron in a WTA circuit                          \\
+$\lambda$      & Parameter of exponential distance distribution          \\
+\hline
+\end{tabular}
+\caption{Glossary of mathematical notations}
+\label{tab:mathematical_notations}
+\end{table}
+
+\begin{table}[htbp]
+\begin{tabular}{|l|l|l|l|}
+\hline
+Mathematical   & Original & Replication          & Value                                                                \\
+\hline
+$r_k(t)$       & -        & r                    & Equation \ref{eqn:firing_rate_paper}                                 \\
+$R_{\max}$     & rmax     & R\_max               & \SI{100}{\hertz}                                                     \\
+$u_k(t)$       & u        & V\_m                 & Equation \ref{eqn:membrane_potential}                                \\
+$y_i(t)$       & Y        & yt\_epsp\_traces     & Equation \ref{eqn:epsp}                                              \\
+$\tau_{decay}$ & tau      & tau\_decay / tau\_m  & \SI{20}{\milli\second}                                               \\
+$\tau_{rise}$  & tau2     & tau\_rise / tau\_syn & \SI{2}{\milli\second}                                                \\
+$u_k$          & udyn     & u                    & Equation \ref{eqn:stp}                                               \\
+$R_k$          & rdyn     & x                    & Equation \ref{eqn:stp}                                               \\
+$U$            & U        & U                    & $\mathcal{N}(\mu=0.5, \sigma^2=(\frac{1}{2}\mu)^2)$\SI{}{\second}   \\
+$D$            & D        & tau\_d               & $\mathcal{N}(\mu=0.11, \sigma^2=(\frac{1}{2}\mu)^2)$\SI{}{\second}  \\
+$F$            & F        & tau\_f               & $\mathcal{N}(\mu=0.005, \sigma^2=(\frac{1}{2}\mu)^2)$\SI{}{\second} \\
+$w_{ki}$       & W        & w                    & Equation \ref{eqn:stdp_paper}/\ref{eqn:stdp_real}    \\
+$\lambda$      & lam      & lam                  & 0.088 \\
+\hline
+\end{tabular}
+\caption{Translation of terms}
+\label{tab:translation}
+\end{table}
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|l|l|}
+        \hline
+        \textbf{PC} & \textbf{P}yramidal \textbf{C}ell\\
+        \textbf{WTA} & \textbf{W}inner \textbf{T}ake \textbf{A}ll\\
+        \textbf{STP} & \textbf{S}hort-\textbf{T}erm \textbf{P}lasticity\\
+        \textbf{STD} & \textbf{S}hort-\textbf{T}erm \textbf{D}epression\\
+        \textbf{STF} & \textbf{S}hort-\textbf{T}erm \textbf{F}acilitation\\
+        \textbf{STDP} & \textbf{S}pike \textbf{T}iming \textbf{D}ependent \textbf{P}lasticity\\
+        \textbf{EPSP} & \textbf{E}xcitatory \textbf{P}ost-\textbf{S}ynaptic \textbf{P}otential\\
+        \textbf{IPSP} & \textbf{I}nhibitory \textbf{P}ost-\textbf{S}ynaptic \textbf{P}otential\\
+        \textbf{SNN} & \textbf{S}piking \textbf{N}eural \textbf{N}etwork\\
+        \textbf{ISI} & \textbf{I}nter\textbf{s}pike \textbf{I}nterval \\
+        \textbf{IAF} & \textbf{I}ntegrate-\textbf{A}nd-\textbf{F}ire \\
+        \hline
+    \end{tabular}
+    \caption{List of Abbreviations}
+    \label{tab:list_of_abbreviations}
+\end{table}
+
+%# membrane potential resulting only from input connections
+%self.u_inp = numpy.zeros(self.tsize+self.nReadouts)
+%# membrane potential resulting only from recurrent connections
+%self.u_rec = numpy.zeros(self.tsize+self.nReadouts)
+%# trace of membrane potentials during simulation (for plotting)
+
+%# vector for output spikes
+%self.Z = numpy.zeros(self.tsize+self.nReadouts)
+%# vector for output spike probability
+%self.Zp = numpy.ones(self.tsize+self.nReadouts)
+
+%self.S = numpy.zeros(self.W.shape)
+%self.Q = numpy.ones(self.W.shape)
+%self.dS = numpy.zeros(self.W.shape)
+%self.dQ = numpy.zeros(self.W.shape)
+
+

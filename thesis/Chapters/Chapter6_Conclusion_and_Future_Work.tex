@@ -1,0 +1,22 @@
+% Chapter Template
+
+\chapter{Conclusion} % Main chapter title
+
+\label{Chapter6} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 1
+%----------------------------------------------------------------------------------------
+
+\section{Conclusion}
+While this thesis ran into many unforeseeable obstacles, most of the goals set for it were eventually achieved. This allows to draw several conclusions:
+\\ \ \\
+The original model has limited implementability when using an object-oriented approach and dedicated neural simulator such as NEST because many equations describing the model behavior require information to be globally available that is not usually disclosed to all entities described by the model. The most prominent example of this being the availability of synaptic weights at the postsynaptic neuron, as described in \ref{ssec:neurons}. When using NEST, it would be more favorable to select a different model for replication that can be integrated better, especially concerning the calculation of membrane potential. Also, it became clear that writing more complicated NEST neuron and synapse models by hand is very prone to bugs and errors because the code gets cluttered very fast and may provoke rare and hard-to-find bugs in NEST because NEST can not possibly provide universal support for every implementation approach chosen by developers.
+\\ \ \\
+Despite the difficulty replicating the model in NEST, the process eventually was successful and rewarding. Most remarkable perhaps is the superiority in simulation speed, benchmarked at over a 55-fold speedup compared to the original, making it faster than real-time for many tests. This speedup allows a more flexible use of the model for testing. Also, the replication successfully uncovered many details and hidden assumptions about \parencite{klampfl_maass_2013} that can now be considered for future work with related models to avoid similar problems.
+
+\section{Future Work}
+As the complexity of this work and its implementation increased continuously throughout its processing, there are several possible directions for future work based on this work. 
+For one, there were a few smaller details about the original paper pointed out, like the incorrect adoption of the STP equation from \parencite{markram_wang_tsodyks_1998}. It should be ensured that the change introduced by \parencite{klampfl_maass_2013} does not affect the correctness or characteristics of the STP.\\
+Another point of interest would be the abstract implementation of lateral inhibition. It is clear that the normalization of the firing rate in each WTA is not biologically plausible behavior, although \parencite{klampfl_maass_2013} pointed out that it did not affect their results in a meaningful way. Nevertheless, if this model should be used for further research and especially for tests that Klampfl and Maass did not design this model for, a more biologically accurate implementation of lateral inhibition should be deployed. A suitable approach for this could be created using the model from \parencite{häusler_maass_2017}, where lateral inhibition is described in a more detailed way and using two different types of inhibition, implemented by two different populations of inhibitory neurons, one for rate normalization and the other for blocking STDP.\\
+Due to the limited time of the thesis, there also remain more tests from \parencite{klampfl_maass_2013} itself, where more advanced input is presented to the network and even nonlinear computing tasks like XOR are solved.
