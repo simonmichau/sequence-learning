@@ -34,7 +34,7 @@ grid.visualize_circuits_3d_barchart()
 ```
 respectively.
 
-<img alt="Grid Visualization" src="img/grid_visualization.svg" width="50%"/>
+<img alt="Grid Visualization" src="img/grid_visualization.svg" width="49%"/>
 <img alt="Grid Visualization 3D" src="img/grid_visualization_3D.svg" width="49%"/>
 
 Before actually running the Network the `max_neuron_gid` has to be set to the maximum global id of the Networks NodeCollection to ensure proper interaction between the Python code and the NEST kernel.
@@ -63,3 +63,7 @@ id_list = recorder.run_network(inpgen=inpgen, t_sim=3000, dt_rec=None, title="Te
 ```
 The `id_list` can later be used to record from the same neurons as in previous simulation runs. To learn more about the different ways of sampling neurons to record from check out the documentation of the `run_network()` function. Sampling is especially useful when dealing with larger networks that can take up significant time for plotting etc.
 The simulation time in ms is set by `t_sim`, and the time intervals in which EPSPs and weights should be recorded are given by `dt_rec`. It can also be decided if the Network should be allowed to learn during the simulation run or not (STDP on/off). To make neuron assemblies visible more easily `order_neurons` should be set to True to order the spike traces by mean activation time.
+
+## Examples
+The following image shows the results of a 3s test after a 100s training phase on a $10\times 5$ grid with 2-10 neurons per WTA circuit. Training and test input consisted of 5Hz noise (black)/pattern (red) spikes with an additional 2Hz of noise laid over during pattern presentation phase.
+<img alt="Example Results" src="img/example.png" width="100%"/>
