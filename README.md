@@ -66,4 +66,4 @@ The simulation time in ms is set by `t_sim`, and the time intervals in which EPS
 
 ## Examples
 The following image shows the results of a 3s test after a 100s training phase on a $10\times 5$ grid with 2-10 neurons per WTA circuit. Training and test input consisted of 5Hz noise (black)/pattern (red) spikes with an additional 2Hz of noise laid over during pattern presentation phase.
-<img alt="Example Results" src="img/example.png" width="100%"/>
+![Example result](img/example.png)
